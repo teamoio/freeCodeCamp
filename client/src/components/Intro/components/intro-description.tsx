@@ -16,27 +16,35 @@ function IntroDescription(): JSX.Element {
         <strong>{t('learn.read-this.heading')}</strong>
       </p>
       <Spacer size='medium' />
-      <p>{t('learn.read-this.p1')}</p>
-      <p>{t('learn.read-this.p2')}</p>
-      <p>{t('learn.read-this.p3')}</p>
-      <p>{t('learn.read-this.p4')}</p>
-      <p>{t('learn.read-this.p5')}</p>
-      <p>{t('learn.read-this.p6')}</p>
-      <p>{t('learn.read-this.p7')}</p>
-      <p>{t('learn.read-this.p8')}</p>
+      <p data-testid='learnReadThisP1'>{t('learn.read-this.p1')}</p>
+      <p data-testid='learnReadThisP2'>{t('learn.read-this.p2')}</p>
+      <p data-testid='learnReadThisP3'>{t('learn.read-this.p3')}</p>
+      <p data-testid='learnReadThisP4'>{t('learn.read-this.p4')}</p>
+      <p data-testid='learnReadThisP5'>{t('learn.read-this.p5')}</p>
+      <p data-testid='learnReadThisP6'>{t('learn.read-this.p6')}</p>
+      <p data-testid='learnReadThisP7'>{t('learn.read-this.p7')}</p>
+      <p data-testid='learnReadThisP8'>{t('learn.read-this.p8')}</p>
       <p>
         <Trans i18nKey='learn.read-this.p9'>
-          <Link className='inline' to='https://youtube.com/freecodecamp' />
+          <Link
+            data-testid='learnReadThisP9'
+            className='inline'
+            to='https://youtube.com/freecodecamp'
+          />
         </Trans>
       </p>
-      <p>{t('learn.read-this.p10')}</p>
+      <p data-testid='learnReadThisP10'>{t('learn.read-this.p10')}</p>
       <p>
         <Trans i18nKey='learn.read-this.p11'>
-          <Link className='inline' to={forumLocation} />
+          <Link
+            data-testid='learnReadThisP11'
+            className='inline'
+            to={forumLocation}
+          />
         </Trans>
       </p>
-      <p>{t('learn.read-this.p12')}</p>
-      <strong>{t('misc.quincy')}</strong>
+      <p data-testid='learnReadThisP12'>{t('learn.read-this.p12')}</p>
+      <strong data-testid='learnReadThisMiscQuincy'>{t('misc.quincy')}</strong>
     </div>
   );
 }
