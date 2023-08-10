@@ -138,10 +138,6 @@ jobs:
 
       - name: Start CI
         run: pnpm run start-ci
-        with:
-          wait-on: http://localhost:8000
-          wait-on-timeout: 1200
-          config: baseUrl=http://localhost:8000
 
       - name: Install playwright dependencies and run
         run: |
