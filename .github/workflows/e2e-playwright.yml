@@ -74,12 +74,6 @@ jobs:
     needs: build-client
     strategy:
       fail-fast: false
-      matrix:
-        browsers: [chrome, firefox, electron]
-        node-version: [18.x]
-        include:
-          - browsers: electron
-            spec: cypress/e2e/default/learn/challenges/projects.ts
 
     services:
       mongodb:
@@ -135,9 +129,6 @@ jobs:
       # start-ci uses pm2, so it needs to be installed globally
       - name: Install pm2
         run: npm i -g pm2
-
-      - name: Start CI
-        run: pnpm run start-ci
 
       - name: Install playwright dependencies and run
         run: |
