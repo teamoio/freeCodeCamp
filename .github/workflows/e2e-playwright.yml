@@ -130,6 +130,10 @@ jobs:
       - name: Install pm2
         run: npm i -g pm2
 
+      - name: run server
+        run: pnpm run start-ci
+        continue-on-error: true
+
       - name: Install playwright dependencies and run
         run: |
           cd ./e2e 
