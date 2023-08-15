@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const certifiedUser = '/certification/certifieduser/responsive-web-design';
-const home = '/';
+const homePage = '/';
 const ISSUED_DATE = 'Developer Certification on August 3, 2018';
 
 test.describe("while viewing someone else's,", () => {
@@ -29,7 +29,7 @@ test.describe("while viewing someone else's,", () => {
 
 test.describe('while viewing your own,', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto(home);
+    await page.goto(homePage);
     await page.getByRole('link', { name: 'Sign in' }).click();
     await page.goto(certifiedUser);
   });
