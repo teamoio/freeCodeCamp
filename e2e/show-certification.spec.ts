@@ -36,15 +36,19 @@ test.describe('while viewing your own,', () => {
   });
 
   test('should render a LinkedIn button', async ({ page }) => {
+    await page.waitForSelector(
+      'text=Add this certification to my LinkedIn profile'
+    );
     await expect(
       page.locator('text=Add this certification to my LinkedIn profile')
-    ).toBeVisible();
+    ).toContainText('Add this certification to my LinkedIn profile');
   });
 
   test('should render a Twitter button', async ({ page }) => {
+    await page.waitForSelector('text=Share this certification on Twitter');
     await expect(
       page.locator('text=Share this certification on Twitter')
-    ).toBeVisible();
+    ).toContainText('Share this certification on Twitter');
   });
 
   test('should be issued with the submission date', async ({ page }) => {
