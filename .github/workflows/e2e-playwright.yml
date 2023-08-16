@@ -151,4 +151,4 @@ jobs:
           pnpm run start-ci &
           sleep 10
           cd ./e2e
-          npx playwright test
+          npx playwright test --project=${{ matrix.browsers }}
