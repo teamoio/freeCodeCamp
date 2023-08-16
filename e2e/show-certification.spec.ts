@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-const certifiedUser =
-  'http://localhost:8000/certification/certifieduser/responsive-web-design';
-const homePage = 'http://localhost:8000';
+const certifiedUser = '/certification/certifieduser/responsive-web-design';
+const homePage = '/';
 const ISSUED_DATE = 'Developer Certification on August 3, 2018';
 
 test.describe("while viewing someone else's,", () => {
