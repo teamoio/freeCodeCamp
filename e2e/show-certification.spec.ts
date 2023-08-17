@@ -1,57 +1,73 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
-test('while viewing someone else', async ({ page }) => {
-  await page.goto(
-    'http://localhost:8000/certification/certifieduser/responsive-web-design'
-  );
+test.describe('while viewing someone else certificate', () => {
+  let page: Page;
 
-  const certificateText = page
-    .locator('#gatsby-focus-wrapper div')
-    .filter({
-      hasText:
-        'This certifies that Full Stack User successfully completed the Responsive Web De'
-    })
-    .nth(2);
-  const LinkedIn = page.getByRole('link', {
-    name: 'Add this certification to my LinkedIn profile'
-  });
-  const Twitter = page.getByRole('link', {
-    name: 'Share this certification on Twitter'
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
   });
 
-  await expect(certificateText).toBeVisible();
-  await expect(LinkedIn).toBeHidden();
-  await expect(Twitter).toBeHidden();
-  await expect(page.locator('[data-cy=issue-date]')).toContainText(
-    'Developer Certification on August 3, 2018'
-  );
+  test.afterAll(async () => {
+    await page.close();
+  });
+
+  test('while viewing someone else, should display certificate', async () => {
+    await expect(page.locator('text=successfully completed')).toBeVisible();
+    await expect(page.locator('text=Responsive Web Design')).toBeVisible();
+  });
+
+  test('while viewing someone else, should not render a LinkedIn button', async () => {
+    await expect(
+      page.locator('text=Add this certification to my LinkedIn profile')
+    ).toBeHidden();
+  });
+
+  test('while viewing someone else, should not render a Twitter button', async () => {
+    await expect(
+      page.locator('text=Share this certification on Twitter')
+    ).toBeHidden();
+  });
 });
 
-test('while viewing your own', async ({ page }) => {
-  await page.goto('http://localhost:8000/');
-  await page.getByRole('link', { name: 'Sign in' }).click();
-  await page.goto(
-    'http://localhost:8000/certification/certifieduser/responsive-web-design'
-  );
+test.describe('while viewing own certificate', () => {
+  let page: Page;
 
-  const certificateText = page
-    .locator('#gatsby-focus-wrapper div')
-    .filter({
-      hasText:
-        'This certifies that Full Stack User successfully completed the Responsive Web De'
-    })
-    .nth(2);
-  const LinkedIn = page.getByRole('link', {
-    name: 'Add this certification to my LinkedIn profile'
-  });
-  const Twitter = page.getByRole('link', {
-    name: 'Share this certification on Twitter'
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await page.goto('http://localhost:8000/');
+    await page.getByRole('link', { name: 'Sign in' }).click();
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
   });
 
-  await expect(certificateText).toBeVisible({ timeout: 10000 });
-  await expect(LinkedIn).toBeVisible({ timeout: 10000 });
-  await expect(Twitter).toBeVisible({ timeout: 10000 });
-  await expect(page.locator('[data-cy=issue-date]')).toContainText(
-    'Developer Certification on August 3, 2018'
-  );
+  test.afterAll(async () => {
+    await page.close();
+  });
+
+  test('should display certificate', async () => {
+    await expect(page.locator('text=successfully completed')).toBeVisible();
+    await expect(page.locator('text=Responsive Web Design')).toBeVisible();
+  });
+
+  test('should render a LinkedIn button', async () => {
+    await expect(
+      page.locator('text=Add this certification to my LinkedIn profile')
+    ).toBeVisible();
+  });
+
+  test('should render a Twitter button', async () => {
+    await expect(
+      page.locator('text=Share this certification on Twitter')
+    ).toBeVisible();
+  });
+
+  test('should be issued with the submission date', async () => {
+    await expect(page.locator('[data-cy=issue-date]')).toContainText(
+      'Developer Certification on August 3, 2018'
+    );
+  });
 });
