@@ -35,19 +35,10 @@ test.describe('while viewing someone else certificate', () => {
 test.describe('while viewing own certificate', () => {
   let page: Page;
 
-  test.beforeAll(async ({ browser }) => {
+  test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto('http://localhost:8000/');
-
-    const signInLink = page.getByRole('link', { name: 'Sign in' });
-    await Promise.all([
-      signInLink.click(),
-      page.waitForLoadState() // Wait for the first navigation to complete
-    ]);
-
-    await page.goto(
-      'http://localhost:8000/certification/certifieduser/responsive-web-design'
-    );
+    await page.getByRole('link', { name: 'Sign in' }).click();
   });
 
   test.afterAll(async () => {
@@ -55,23 +46,35 @@ test.describe('while viewing own certificate', () => {
   });
 
   test('should display certificate', async () => {
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
     await expect(page.locator('text=successfully completed')).toBeVisible();
     await expect(page.locator('text=Responsive Web Design')).toBeVisible();
   });
 
   test('should render a LinkedIn button', async () => {
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
     await expect(
       page.locator('text=Add this certification to my LinkedIn profile')
     ).toBeVisible();
   });
 
   test('should render a Twitter button', async () => {
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
     await expect(
       page.locator('text=Share this certification on Twitter')
     ).toBeVisible();
   });
 
   test('should be issued with the submission date', async () => {
+    await page.goto(
+      'http://localhost:8000/certification/certifieduser/responsive-web-design'
+    );
     await expect(page.locator('[data-cy=issue-date]')).toContainText(
       'Developer Certification on August 3, 2018'
     );
