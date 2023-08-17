@@ -38,7 +38,13 @@ test.describe('while viewing own certificate', () => {
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto('http://localhost:8000/');
-    await page.getByRole('link', { name: 'Sign in' }).click();
+
+    const signInLink = page.getByRole('link', { name: 'Sign in' });
+    await Promise.all([
+      signInLink.click(),
+      page.waitForLoadState() // Wait for the first navigation to complete
+    ]);
+
     await page.goto(
       'http://localhost:8000/certification/certifieduser/responsive-web-design'
     );
