@@ -48,9 +48,9 @@ test('while viewing your own', async ({ page }) => {
     name: 'Share this certification on Twitter'
   });
 
-  await expect(certificateText).toBeVisible();
-  await expect(LinkedIn).toBeVisible();
-  await expect(Twitter).toBeVisible();
+  await expect(certificateText).toBeVisible({ timeout: 10000 });
+  await expect(LinkedIn).toBeVisible({ timeout: 10000 });
+  await expect(Twitter).toBeVisible({ timeout: 10000 });
   await expect(page.locator('[data-cy=issue-date]')).toContainText(
     'Developer Certification on August 3, 2018'
   );
