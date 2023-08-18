@@ -21,13 +21,15 @@ test('while viewing own, should display certificate', async () => {
 });
 
 test('while viewing own, should render a LinkedIn button', async () => {
-  await expect(
+  const softExpect = expect.configure({ soft: true });
+  await softExpect(
     page.locator('text=Add this certification to my LinkedIn profile')
   ).toBeVisible();
 });
 
 test('while viewing own, should render a Twitter button', async () => {
-  await expect(
+  const softExpect = expect.configure({ soft: true });
+  await softExpect(
     page.locator('text=Share this certification on Twitter')
   ).toBeVisible();
 });
