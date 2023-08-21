@@ -60,7 +60,6 @@ test.describe('Test paragraph 3 on /donate', () => {
   });
 });
 
-// Work In Progress
 test.describe('Test FAQ Questions ', () => {
   test('Test get-help?', async (): Promise<void> => {
     await page.getByText(translations.donate['get-help']).click();
