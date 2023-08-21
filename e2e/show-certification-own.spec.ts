@@ -2,11 +2,10 @@ import { test, expect, type Page } from '@playwright/test';
 
 let page: Page;
 
+test.use({ storageState: 'LoginAuth.json' });
+
 test.beforeAll(async ({ browser }) => {
   page = await browser.newPage();
-  await page.pause();
-  await page.goto('http://localhost:8000/');
-  await page.getByRole('link', { name: 'Sign in' }).click();
   await page.goto(
     'http://localhost:8000/certification/certifieduser/responsive-web-design'
   );

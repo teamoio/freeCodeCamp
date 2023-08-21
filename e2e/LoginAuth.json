@@ -1,0 +1,85 @@
+{
+  "cookies": [
+    {
+      "name": "_ga",
+      "value": "GA1.1.742755684.1692598766",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1727158766.117445,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.1.116871299.1692598766",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1692685166,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat_UA-55446531-19",
+      "value": "1",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1692598826,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_S7DT07TF4G",
+      "value": "GS1.1.1692598766.1.0.1692598766.0.0.0",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1727158766.116991,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_csrf",
+      "value": "Ko_Iu3bij1VFR-v0aBZkNv0D",
+      "domain": "localhost",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "csrf_token",
+      "value": "D73R0k2F-cZdx6Dyt3hEaxQaknB_87Cbt3z4",
+      "domain": "localhost",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "jwt_access_token",
+      "value": "s%3AeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NUb2tlbiI6eyJpZCI6Im55eW5zVHlRcm1YTm84QVBNS2lHN1NBa1N2c0JpQzFYblo4UWhJMkd1aGZpeEFhVjZoRXB1SjVnRlROZUVjSlUiLCJ0dGwiOjc3NzYwMDAwMDAwLCJjcmVhdGVkIjoiMjAyMy0wOC0yMVQwNjoxOToyNi4zMDRaIiwidXNlcklkIjoiNWZhMmRiMDBhMjVjMWMxZmE0OWNlMDY3In0sImlhdCI6MTY5MjU5ODc2Nn0.P0fO5SqxM0XsFNNfM_wHtX4vAR7Sz22E_TrGJatesnY.mTXxi9ls1R2y4Q%2FZWCnsvHjP%2BZdAo3Rk%2FDxlwMAvchI",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1727158766.310963,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "connect.sid",
+      "value": "s%3AKxpYRPXQ-ITA0647B050dLgDFDFiF7Sk.xi3u4XZGAie%2F0IhoaRb2QnLENfcj3R83FWw%2FlYnSY4U",
+      "domain": "localhost",
+      "path": "/",
+      "expires": 1727158766.310971,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
