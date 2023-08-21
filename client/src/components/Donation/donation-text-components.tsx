@@ -18,9 +18,9 @@ export const DonationText = (): JSX.Element => {
   const { t } = useTranslation();
   return (
     <>
-      <p>{t('donate.efficiency')}</p>
-      <p>{t('donate.why-donate-1')}</p>
-      <p>{t('donate.why-donate-2')}</p>
+      <p data-test-label='donateEfficiencyP1'>{t('donate.efficiency')}</p>
+      <p data-test-label='donateWhyDonateP1'>{t('donate.why-donate-1')}</p>
+      <p data-test-label='donateWhyDonateP2'>{t('donate.why-donate-2')}</p>
     </>
   );
 };
@@ -67,12 +67,15 @@ const FaqItem = (
 export const DonationFaqText = (): JSX.Element => {
   const { t } = useTranslation();
   const faqItems = [
-    { Q: t('donate.get-help'), A: <p>{t('donate.forward-receipt')}</p> },
+    {
+      Q: t('donate.get-help'),
+      A: <p data-test-label='donateFaqA1'>{t('donate.forward-receipt')}</p>
+    },
     {
       Q: t('donate.how-transparent'),
       A: (
         <>
-          <p>{t('donate.very-transparent')}</p>
+          <p data-test-label='donateFaqA2P1'>{t('donate.very-transparent')}</p>
           <p>
             <Trans i18nKey='donate.download-irs'>
               <a href={t('links:donate.download-irs-url')}>placeholder</a>
@@ -90,8 +93,8 @@ export const DonationFaqText = (): JSX.Element => {
       Q: t('donate.how-efficient'),
       A: (
         <>
-          <p>{t('donate.fcc-budget')}</p>
-          <p>{t('donate.help-millions')}</p>
+          <p data-test-label='donateFaqA3P1'>{t('donate.fcc-budget')}</p>
+          <p data-test-label='donateFaqA3P2'>{t('donate.help-millions')}</p>
         </>
       )
     },
@@ -104,7 +107,7 @@ export const DonationFaqText = (): JSX.Element => {
               <a href={t('links:donate.one-time-url')}>placeholder</a>
             </Trans>
           </p>
-          <p>{t('donate.wire-transfer')}</p>
+          <p data-test-label='donateFaqA4P2'>{t('donate.wire-transfer')}</p>
         </>
       )
     },
@@ -112,7 +115,7 @@ export const DonationFaqText = (): JSX.Element => {
       Q: t('donate.does-crypto'),
       A: (
         <>
-          <p>{t('donate.yes-cryptocurrency')}</p>
+          <p data-test-label='donateFaqA5'>{t('donate.yes-cryptocurrency')}</p>
         </>
       )
     },
@@ -121,7 +124,7 @@ export const DonationFaqText = (): JSX.Element => {
       Q: t('donate.can-check'),
       A: (
         <>
-          <p>{t('donate.yes-check')}</p>
+          <p data-test-label='donateFaqA6'>{t('donate.yes-check')}</p>
           <p>{POBOX}</p>
         </>
       )
@@ -130,33 +133,48 @@ export const DonationFaqText = (): JSX.Element => {
       Q: t('donate.how-matching-gift'),
       A: (
         <>
-          <p>{t('donate.employers-vary')}</p>
-          <p>{t('donate.some-volunteer')}</p>
-          <p>{t('donate.help-matching-gift')}</p>
+          <p data-test-label='donateFaqA7P1'>{t('donate.employers-vary')}</p>
+          <p data-test-label='donateFaqA7P2'>{t('donate.some-volunteer')}</p>
+          <p data-test-label='donateFaqA7P3'>
+            {t('donate.help-matching-gift')}
+          </p>
         </>
       )
     },
-    { Q: t('donate.how-endowment'), A: <p>{t('donate.endowment')}</p> },
+    {
+      Q: t('donate.how-endowment'),
+      A: <p data-test-label='donateFaqA8'>{t('donate.endowment')}</p>
+    },
     {
       Q: t('donate.how-legacy'),
       A: (
         <>
-          <p>{t('donate.we-honored')}</p>
+          <p data-test-label='donateFaqA9P1'>{t('donate.we-honored')}</p>
           <blockquote>
-            <p>{t('donate.legacy-gift-message')}</p>
+            <p data-test-label='donateFaqA9P2'>
+              {t('donate.legacy-gift-message')}
+            </p>
           </blockquote>
-          <p>{t('donate.thank-wikimedia')}</p>
-          <p>{t('donate.legacy-gift-questions')}</p>
+          <p data-test-label='donateFaqA9P3'>{t('donate.thank-wikimedia')}</p>
+          <p data-test-label='donateFaqA9P4'>
+            {t('donate.legacy-gift-questions')}
+          </p>
         </>
       )
     },
-    { Q: t('donate.how-stock'), A: <p>{t('donate.welcome-stock')}</p> },
-    { Q: t('donate.how-update'), A: <p>{t('donate.forward-receipt')}</p> },
+    {
+      Q: t('donate.how-stock'),
+      A: <p data-test-label='donateFaqA10'>{t('donate.welcome-stock')}</p>
+    },
+    {
+      Q: t('donate.how-update'),
+      A: <p data-test-label='donateFaqA11'>{t('donate.forward-receipt')}</p>
+    },
     {
       Q: t('donate.anything-else'),
       A: (
         <>
-          <p>{t('donate.other-support')}</p>
+          <p data-test-label='donateFaqA12'>{t('donate.other-support')}</p>
         </>
       )
     }
