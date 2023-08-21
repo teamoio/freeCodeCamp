@@ -4,9 +4,7 @@ let page: Page;
 
 test.beforeAll(async ({ browser }) => {
   page = await browser.newPage();
-  await page.goto(
-    'http://localhost:8000/certification/certifieduser/responsive-web-design'
-  );
+  await page.goto('/certification/certifieduser/responsive-web-design');
 });
 
 test.afterAll(async () => {
