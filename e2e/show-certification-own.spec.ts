@@ -14,20 +14,20 @@ test.afterAll(async () => {
 });
 
 test('while viewing own, should display certificate', async () => {
-  await expect(page.locator('text=successfully completed')).toBeVisible();
-  await expect(page.locator('text=Responsive Web Design')).toBeVisible();
+  expect(await page.isVisible('text=successfully completed')).toBeTruthy();
+  expect(await page.isVisible('text=Responsive Web Design')).toBeTruthy();
 });
 
 test('while viewing own, should render a LinkedIn button', async () => {
-  await expect(
-    page.locator('text=Add this certification to my LinkedIn profile')
-  ).toBeVisible();
+  expect(
+    await page.isVisible('text=Add this certification to my LinkedIn profile')
+  ).toBeTruthy();
 });
 
 test('while viewing own, should render a Twitter button', async () => {
-  await expect(
-    page.locator('text=Share this certification on Twitter')
-  ).toBeVisible();
+  expect(
+    await page.isVisible('text=Share this certification on Twitter')
+  ).toBeTruthy();
 });
 
 test('while viewing own, should be issued with the submission date', async () => {
