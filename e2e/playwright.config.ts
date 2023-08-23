@@ -51,25 +51,21 @@ export default defineConfig({
 
     {
       name: 'firefox',
-      dependencies: ['setup'],
       use: { ...devices['Desktop Firefox'] }
     },
 
     {
       name: 'webkit',
-      dependencies: ['setup'],
       use: { ...devices['Desktop Safari'] }
     },
 
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
-      dependencies: ['setup'],
       use: { ...devices['Pixel 5'] }
     },
     {
       name: 'Mobile Safari',
-      dependencies: ['setup'],
       use: { ...devices['iPhone 12'] }
     }
     /* Uncomment the blocks out if you want to enable the mentioned features */

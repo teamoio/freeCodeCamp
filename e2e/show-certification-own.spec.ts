@@ -23,11 +23,11 @@ test.describe('Show certification own', () => {
   });
 
   test('should render LinkedIn and Twitter buttons', async () => {
-    await expect(
-      page.locator('text=Add this certification to my LinkedIn profile')
-    ).toBeVisible();
-    await expect(
-      page.locator('text=Share this certification on Twitter')
-    ).toBeVisible();
+    expect(
+      await page.isVisible('text=Add this certification to my LinkedIn profile')
+    ).toBeTruthy();
+    expect(
+      await page.isVisible('text=Share this certification on Twitter')
+    ).toBeTruthy();
   });
 });
