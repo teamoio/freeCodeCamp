@@ -13,8 +13,8 @@ test.describe('Show certification else', () => {
   });
 
   test('while viewing someone else, should display certificate', async () => {
-    await expect(page.locator('text=successfully completed')).toBeVisible();
-    await expect(page.locator('text=Responsive Web Design')).toBeVisible();
+    expect(await page.isVisible('text=successfully completed')).toBeTruthy();
+    expect(await page.isVisible('text=Responsive Web Design')).toBeTruthy();
   });
 
   test('while viewing someone else, should not render a LinkedIn button and Twitter button', async () => {

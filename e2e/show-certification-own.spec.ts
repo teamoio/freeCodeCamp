@@ -15,8 +15,8 @@ test.describe('Show certification own', () => {
   });
 
   test('should display certificate details', async () => {
-    await expect(page.locator('text=successfully completed')).toBeVisible();
-    await expect(page.locator('text=Responsive Web Design')).toBeVisible();
+    expect(await page.isVisible('text=successfully completed')).toBeTruthy();
+    expect(await page.isVisible('text=Responsive Web Design')).toBeTruthy();
     await expect(page.locator('[data-cy=issue-date]')).toContainText(
       'Developer Certification on August 3, 2018'
     );
